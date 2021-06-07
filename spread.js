@@ -68,21 +68,18 @@ const stuff = [
  * результата.
  */
 
-const zodiacSigns = [].concat(stuff[0], stuff[1], stuff[2][0], stuff[2][1]);
+const zodiacSigns = [...stuff[0], ...stuff[1], ...stuff[2][0], ...stuff[2][1]]
 
-const flowers = [].concat(stuff[2][2], stuff[3][0], stuff[3][1]);
+const flowers = [...stuff[2][2], ...stuff[3][0], ...stuff[3][1]];
 
-const food = [stuff[3][2]];
-for (let i = 0; i < stuff[4].length; i++) {
-
-    for (let elem of stuff[4][i]) {
-        if (elem.value) {
-            food.push(elem.value);
-        } else if (elem.get()) {
-            food.push(elem.get())
-        }
+const food = stuff[4].map((arrElem) => {
+    const arrCircle = [];
+    for (let elem of arrElem) {
+        (elem.value) ? arrCircle.push(elem.value): arrCircle.push(elem.get());
     }
-}
+    return arrCircle;
+})
+
 const signsDoc = document.getElementById('signs');
 signsDoc.innerHTML = zodiacSigns;
 const flowersDoc = document.getElementById('flowers');
