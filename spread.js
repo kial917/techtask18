@@ -72,9 +72,7 @@ const zodiacSigns = [...stuff[0], ...stuff[1], ...stuff[2][0], ...stuff[2][1]]
 
 const flowers = [...stuff[2][2], ...stuff[3][0], ...stuff[3][1]];
 
-const food = stuff[4].map((arrElem) => {
-    return [arrElem[0].value||arrElem[0].get(),arrElem[1].value||arrElem[1].get()];
-    })
+const food = stuff[4].map((arrElem) => [arrElem[0].value||arrElem[0].get(),arrElem[1].value||arrElem[1].get()]);
 
 const signsDoc = document.getElementById('signs');
 signsDoc.innerHTML = zodiacSigns;
