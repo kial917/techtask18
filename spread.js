@@ -68,11 +68,16 @@ const stuff = [
  * результата.
  */
 
-const zodiacSigns = [...stuff[0], ...stuff[1], ...stuff[2][0], ...stuff[2][1]]
+const zodiacSigns = [...stuff[0], ...stuff[1], ...stuff[2].slice(0, 2)].reduce((acc, item) => [...acc, ...item], []);
 
-const flowers = [...stuff[2][2], ...stuff[3][0], ...stuff[3][1]];
+const flowers = [...stuff[2].pop(), ...stuff[3].slice(0, 2)].reduce((acc, item) => [...acc, ...item], []);;
+console.log(zodiacSigns);
+console.log(flowers)
 
-const food = stuff[4].map((arrElem) => [arrElem[0].value||arrElem[0].get(),arrElem[1].value||arrElem[1].get()]);
+const food = stuff[4]
+    .map((arrElem) => arrElem.map((obj) => obj.value || obj.get()))
+    .reduce((acc, item) => [...acc, ...item], [])
+console.log(food);
 
 const signsDoc = document.getElementById('signs');
 signsDoc.innerHTML = zodiacSigns;
