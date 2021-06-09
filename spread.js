@@ -74,9 +74,7 @@ const flowers = [...stuff[2].pop(), ...stuff[3].slice(0, 2)].reduce((acc, item) 
 console.log(zodiacSigns);
 console.log(flowers)
 
-const food = stuff[4]
-    .map((arrElem) => arrElem.map((obj) => obj.value || obj.get()))
-    .reduce((acc, item) => [...acc, ...item], [])
+const food = stuff[4].reduce((acc, item) => [...acc, ...item.map((obj) => obj.value || obj.get())], [])
 console.log(food);
 
 const signsDoc = document.getElementById('signs');
